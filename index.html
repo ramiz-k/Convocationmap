@@ -133,7 +133,7 @@ const T = {
   s2:    { en: 'Where are you now?', hi: 'आप अभी कहाँ हैं?' },
   s3:    { en: 'Where do you want to go?', hi: 'आप कहाँ जाना चाहते हैं?' },
   student: { en: 'Student', hi: 'छात्र' },
-  staff: { en: 'Staff / Faculty / VIP', hi: 'स्टाफ / शिक्षक / वीआईपी' },
+  staff: { en: 'Staff / Faculty', hi: 'स्टाफ / शिक्षक' },
   photoNote: { en: 'Photography: go to the area assigned to your department.', hi: 'फोटोग्राफी: अपने विभाग के लिए निर्धारित क्षेत्र में जाएँ।' },
   fac:   { en: 'Facilities', hi: 'सुविधाएँ' },
   nearwc:{ en: 'Nearest washroom', hi: 'निकटतम शौचालय' },
@@ -152,30 +152,20 @@ const T = {
   entry: { en: 'PANDAL ENTRY', hi: 'पंडाल प्रवेश' },
   faculty:{ en: 'Faculty & Guests', hi: 'शिक्षक एवं अतिथि' },
   students:{ en: 'Students', hi: 'छात्र' },
-  gStudent: { en: 'Student gate', hi: 'छात्र गेट' },
-  gStaff:   { en: 'Staff / VIP gate', hi: 'स्टाफ / वीआईपी गेट' },
+  gateL: { en: 'Gate', hi: 'गेट' },
   wcL:   { en: 'Washroom', hi: 'शौचालय' },
   hcL:   { en: 'Health Centre', hi: 'स्वास्थ्य केंद्र' },
   cafe:  { en: 'NESCAFÉ', hi: 'नेस्कैफ़े' },
 };
 
-/* ---------- Gates ---------- */
+/* ---------- Gates (names only) ---------- */
 const GATES = {
-  S1: { node: 'S1', type: 'student', num: '1', short: { en: 'Gate 1', hi: 'गेट 1' },
-        title: { en: 'Student Entry', hi: 'छात्र प्रवेश' },
-        acc: { en: 'Students', hi: 'छात्र' },
-        name: { en: 'Gate 1 · Student Entry', hi: 'गेट 1 · छात्र प्रवेश' },
-        sub: { en: 'Near Bank & PWD Office · for Students', hi: 'बैंक व पीडब्ल्यूडी कार्यालय के पास · छात्रों के लिए' }, tag: { dx: -50, dy: -34, a: 'end' } },
-  F1: { node: 'F1', type: 'staff', num: '2', short: { en: 'Gate 2', hi: 'गेट 2' },
-        title: { en: 'IGDTUW Gate', hi: 'आईजीडीटीयूडब्ल्यू गेट' },
-        acc: { en: 'Staff · Faculty · VIP · VVIP', hi: 'स्टाफ · शिक्षक · वीआईपी · वीवीआईपी' },
-        name: { en: 'Gate 2 · IGDTUW Gate', hi: 'गेट 2 · आईजीडीटीयूडब्ल्यू गेट' },
-        sub: { en: 'In front of Auditorium · Staff, Faculty, VIPs & VVIPs', hi: 'सभागार के सामने · स्टाफ, शिक्षक, वीआईपी व वीवीआईपी' }, tag: { dx: 52, dy: -62, a: 'start' } },
-  F2: { node: 'F2', type: 'staff', num: '3', short: { en: 'Gate 3', hi: 'गेट 3' },
-        title: { en: 'Main University Gate', hi: 'मुख्य विश्वविद्यालय गेट' },
-        acc: { en: 'Staff · Faculty · VIP', hi: 'स्टाफ · शिक्षक · वीआईपी' },
-        name: { en: 'Gate 3 · Main University Gate', hi: 'गेट 3 · मुख्य विश्वविद्यालय गेट' },
-        sub: { en: 'Next to Room 14 · Staff, Faculty & VIPs', hi: 'कमरा 14 के पास · स्टाफ, शिक्षक व वीआईपी' }, tag: { dx: -52, dy: -62, a: 'end' } },
+  S1: { node: 'S1', type: 'student', title: { en: 'Student Entry', hi: 'छात्र प्रवेश' },
+        sub: { en: 'Near Bank & PWD Office', hi: 'बैंक व पीडब्ल्यूडी कार्यालय के पास' }, tag: { dx: -52, dy: -16, a: 'end' } },
+  F1: { node: 'F1', type: 'staff', title: { en: 'IGDTUW Gate', hi: 'आईजीडीटीयूडब्ल्यू गेट' },
+        sub: { en: 'In front of Auditorium', hi: 'सभागार के सामने' }, tag: { dx: 52, dy: -40, a: 'start' } },
+  F2: { node: 'F2', type: 'staff', title: { en: 'Main University Gate', hi: 'मुख्य विश्वविद्यालय गेट' },
+        sub: { en: 'Next to Media Centre', hi: 'मीडिया सेंटर के पास' }, tag: { dx: -52, dy: -66, a: 'end', br: 1 } },
 };
 
 /* ---------- Places ---------- */
@@ -188,7 +178,7 @@ const PLACES = {
   photoA: { node: 'PH',  ic: '📸', name: { en: 'Photography · Area 1', hi: 'फोटोग्राफी · क्षेत्र 1' }, desc: { en: 'CR 1–10 · Library front', hi: 'CR 1–10 · पुस्तकालय के सामने' } },
   photoB: { node: 'PB',  ic: '📸', name: { en: 'Photography · Area 2', hi: 'फोटोग्राफी · क्षेत्र 2' }, desc: { en: 'NL2 · CR 12 · Hall 69 (N1–N6)', hi: 'NL2 · CR 12 · हॉल 69 (N1–N6)' } },
   lunchS: { node: 'SLD', ic: '🍽️', name: { en: 'Student Lunch', hi: 'छात्र भोजन' }, desc: { en: 'Open ground by parking', hi: 'पार्किंग के पास खुला मैदान' } },
-  lunchF: { node: 'LD',  ic: '🍽️', name: { en: 'Staff Lunch', hi: 'स्टाफ भोजन' }, desc: { en: 'Bottom of Playing Field', hi: 'खेल मैदान का निचला भाग' } },
+  lunchF: { node: 'LD',  ic: '🍽️', name: { en: 'Staff Lunch', hi: 'स्टाफ भोजन' }, desc: { en: 'South of ceremony area · same entry', hi: 'समारोह क्षेत्र के दक्षिण में · वही प्रवेश' } },
   health: { node: 'HC',  ic: '🏥', name: { en: 'Health Centre', hi: 'स्वास्थ्य केंद्र' }, desc: { en: 'Opposite Library', hi: 'पुस्तकालय के सामने' } },
 };
 Object.keys(WCS).forEach(k => PLACES[k] = { node: k.toUpperCase(), ic: '🚻', name: WCNAME, desc: { en: '', hi: '' } });
@@ -198,35 +188,14 @@ const ROLES = {
 };
 const NEXT = { photoA: () => 'pandal', photoB: () => 'pandal', pandal: role => role === 'student' ? 'lunchS' : 'lunchF' };
 
-/* ---------- Walking graph (map pixels) ---------- */
-const N = {
-  S1: [1845, 166], WA: [1845, 205], V1: [1845, 322], V1b: [1845, 398], V2: [1845, 684], VH: [1845, 722], V3: [1830, 945],
-  PHW: [1795, 684], PH: [1700, 664],
-  C1: [1700, 320], C2: [1612, 345], C3: [1578, 418], RNE: [1480, 420],
-  T1: [1400, 398], T2: [1330, 386], RE: [1215, 366], T3: [1100, 345], T4: [800, 295], T5: [620, 268],
-  T6: [480, 250], T7: [360, 262], T8: [280, 300], RW: [235, 390],
-  W2: [255, 490], W3: [330, 580], W4: [450, 632], RSW: [600, 662],
-  RL: [1000, 708], B1: [1200, 730], RSE: [1390, 752], E1: [1440, 700], E2: [1455, 560], E3: [1470, 440],
-  F1: [12, 390], F1b: [150, 392],
-  F2: [2563, 716], F2a: [2400, 745], F2b: [2200, 810], F2c: [2000, 885],
-  PIN: [1215, 392], PD: [1130, 462],
-  LIN: [1000, 684], LD: [990, 642],
-  SL1: [1800, 992], SLD: [1930, 985],
-  PB: [1990, 398], W2m: [2125, 398], E400: [2225, 400], E548: [2225, 548], B5: [1960, 690], HC: [1915, 722],
-  WC1: WCS.wc1, WC2: WCS.wc2, WC3: WCS.wc3, WC4: WCS.wc4, WC5: WCS.wc5,
-};
-const EDGES = [
-  ['S1','WA'],['WA','V1'],['V1','V1b'],['V1b','V2'],['V2','VH'],['VH','V3'],['V2','PHW'],['PHW','PH'],
-  ['V1','C1'],['C1','C2'],['C2','C3'],['C3','RNE'],
-  ['RNE','T1'],['T1','T2'],['T2','RE'],['RE','T3'],['T3','T4'],['T4','T5'],['T5','T6'],['T6','T7'],['T7','T8'],['T8','RW'],
-  ['RW','F1b'],['F1b','F1'],['RW','W2'],['W2','W3'],['W3','W4'],['W4','RSW'],['RSW','RL'],['RL','B1'],['B1','RSE'],
-  ['RSE','E1'],['E1','E2'],['E2','E3'],['E3','RNE'],['V3','F2c'],['F2c','F2b'],['F2b','F2a'],['F2a','F2'],
-  ['RE','PIN'],['PIN','PD'],['RL','LIN'],['LIN','LD'],['V3','SL1'],['SL1','SLD'],
-  ['V1b','PB'],['PB','W2m'],['W2m','WC2'],['W2m','E400'],['E400','E548'],['E548','WC3'],
-  ['WA','WC1'],['PH','WC4'],['V2','B5'],['B5','WC5'],['VH','HC'],
-];
+/* ---------- Walking graph (map pixels). Nodes sit on the real roads; edge shapes follow the road centre-lines ---------- */
+const N = {"S1":[1845,166],"WA":[1849,207],"V1":[1835,320],"V1b":[1826,398],"V2":[1821,698],"VH":[1828,726],"V3":[1775,946],"PHW":[1795,684],"PH":[1700,664],"C1":[1700,317],"C2":[1616,348],"C3":[1578,419],"RNE":[1481,405],"T1":[1400,392],"T2":[1332,381],"RE":[1217,362],"T3":[1102,343],"T4":[800,293],"T5":[620,264],"T6":[480,241],"T7":[356,254],"T8":[280,298],"RW":[220,383],"W2":[226,505],"W3":[321,602],"W4":[448,634],"RSW":[603,653],"RL":[1001,700],"B1":[1201,724],"RSE":[1395,748],"E1":[1403,696],"E2":[1430,554],"E3":[1452,438],"F1":[12,390],"F1b":[150,398],"F2":[2555,698],"F2a":[2397,725],"F2b":[2190,791],"F2c":[1992,870],"PIN":[1215,392],"PD":[1130,462],"LD":[990,632],"SL1":[1800,992],"SLD":[1930,985],"PB":[1990,389],"W2m":[2125,372],"E400":[2225,366],"E548":[2225,548],"B5":[1960,690],"HC":[1915,722],"WC1":[2100,188],"WC2":[2125,347],"WC3":[2190,548],"WC4":[1692,654],"WC5":[2095,667]};
+const EG = {"WA|V1":[[1849,207],[1835,320]],"V1|V1b":[[1835,320],[1826,398]],"V1b|V2":[[1826,398],[1799,616],[1799,648],[1807,682],[1821,698]],"V2|VH":[[1821,698],[1828,709],[1828,726]],"VH|V3":[[1828,726],[1830,862],[1774,918],[1775,946]],"V1|C1":[[1835,320],[1815,316],[1700,317]],"C1|C2":[[1700,317],[1649,326],[1616,348]],"C2|C3":[[1616,348],[1597,373],[1584,413],[1578,419]],"C3|RNE":[[1578,419],[1481,405]],"RNE|T1":[[1481,405],[1400,392]],"T1|T2":[[1400,392],[1332,381]],"T2|RE":[[1332,381],[1217,362]],"RE|T3":[[1217,362],[1102,343]],"T3|T4":[[1102,343],[800,293]],"T4|T5":[[800,293],[620,264]],"T5|T6":[[620,264],[480,241]],"T6|T7":[[480,241],[413,240],[356,254]],"T7|T8":[[356,254],[315,272],[280,298]],"T8|RW":[[280,298],[245,335],[220,383]],"RW|F1b":[[220,383],[207,404],[150,398]],"RW|W2":[[220,383],[211,405],[211,452],[226,505]],"W2|W3":[[226,505],[253,549],[283,578],[321,602]],"W3|W4":[[321,602],[372,623],[448,634]],"W4|RSW":[[448,634],[603,653]],"RSW|RL":[[603,653],[1001,700]],"RL|B1":[[1001,700],[1201,724]],"B1|RSE":[[1201,724],[1391,744],[1395,748]],"RSE|E1":[[1395,748],[1403,696]],"E1|E2":[[1403,696],[1430,554]],"E2|E3":[[1430,554],[1452,438]],"E3|RNE":[[1452,438],[1456,413],[1465,404],[1481,405]],"V3|F2c":[[1775,946],[1774,928],[1831,871],[1943,871],[1951,875],[1979,875],[1992,870]],"F2c|F2b":[[1992,870],[2190,791]],"F2b|F2a":[[2190,791],[2297,749],[2397,725]]};
+const EDGES = [["S1","WA"],["WA","V1"],["V1","V1b"],["V1b","V2"],["V2","VH"],["VH","V3"],["V2","PHW"],["PHW","PH"],["V1","C1"],["C1","C2"],["C2","C3"],["C3","RNE"],["RNE","T1"],["T1","T2"],["T2","RE"],["RE","T3"],["T3","T4"],["T4","T5"],["T5","T6"],["T6","T7"],["T7","T8"],["T8","RW"],["RW","F1b"],["F1b","F1"],["RW","W2"],["W2","W3"],["W3","W4"],["W4","RSW"],["RSW","RL"],["RL","B1"],["B1","RSE"],["RSE","E1"],["E1","E2"],["E2","E3"],["E3","RNE"],["V3","F2c"],["F2c","F2b"],["F2b","F2a"],["F2a","F2"],["RE","PIN"],["PIN","PD"],["PD","LD"],["V3","SL1"],["SL1","SLD"],["V1b","PB"],["PB","W2m"],["W2m","WC2"],["W2m","E400"],["E400","E548"],["E548","WC3"],["WA","WC1"],["PH","WC4"],["V2","B5"],["B5","WC5"],["VH","HC"]];
+const geomOf = (a, b) => EG[a + '|' + b] || (EG[b + '|' + a] ? EG[b + '|' + a].slice().reverse() : [N[a], N[b]]);
+const plen = pl => pl.reduce((t, p, i) => i ? t + Math.hypot(p[0] - pl[i - 1][0], p[1] - pl[i - 1][1]) : 0, 0);
 const ADJ = {};
-EDGES.forEach(([a, b]) => { const d = Math.hypot(N[a][0] - N[b][0], N[a][1] - N[b][1]); (ADJ[a] ??= []).push([b, d]); (ADJ[b] ??= []).push([a, d]); });
+EDGES.forEach(([a, b]) => { const d = plen(geomOf(a, b)); (ADJ[a] ??= []).push([b, d]); (ADJ[b] ??= []).push([a, d]); });
 function shortest(a, b) {
   const dist = { [a]: 0 }, prev = {}, done = new Set(), q = [[0, a]];
   while (q.length) {
@@ -242,9 +211,10 @@ function shortest(a, b) {
 
 /* ---------- Directions (a key "A>B" applies when the route goes from node A to node B) ---------- */
 const SAY = {
-  S1: { en: 'Enter through Gate 1 (Student Entry), beside the Bank and PWD Office.', hi: 'बैंक और पीडब्ल्यूडी कार्यालय के पास गेट 1 (छात्र प्रवेश) से प्रवेश करें।' },
-  F1: { en: 'Enter through Gate 2 (IGDTUW Gate), in front of the Auditorium.', hi: 'सभागार के सामने गेट 2 (आईजीडीटीयूडब्ल्यू गेट) से प्रवेश करें।' },
-  F2: { en: 'Enter through Gate 3 (Main University Gate), next to Room 14.', hi: 'कमरा 14 के पास गेट 3 (मुख्य विश्वविद्यालय गेट) से प्रवेश करें।' },
+  S1: { en: 'Enter through the Student Entry, beside the Bank and PWD Office.', hi: 'बैंक और पीडब्ल्यूडी कार्यालय के पास छात्र प्रवेश से प्रवेश करें।' },
+  F1: { en: 'Enter through the IGDTUW Gate, in front of the Auditorium.', hi: 'सभागार के सामने आईजीडीटीयूडब्ल्यू गेट से प्रवेश करें।' },
+  F2: { en: 'Enter through the Main University Gate, next to the Media Centre.', hi: 'मीडिया सेंटर के पास मुख्य विश्वविद्यालय गेट से प्रवेश करें।' },
+  'PD>LD': { en: 'Walk through the ceremony area to its south side.', hi: 'समारोह क्षेत्र से होते हुए उसके दक्षिणी ओर जाएँ।' },
   V2: { en: 'Pass the front of the Dara Shikoh Library.', hi: 'दारा शिकोह पुस्तकालय के सामने से गुज़रें।' },
   V3: { en: 'Continue to the Car Parking junction.', hi: 'कार पार्किंग चौराहे तक आगे बढ़ें।' },
   C1: { en: 'Use the connecting road between the main road and the Playing Field track.', hi: 'मुख्य सड़क और खेल मैदान के ट्रैक को जोड़ने वाली सड़क लें।' },
@@ -264,7 +234,7 @@ const ARRIVE = {
   photoA: { en: 'Photography Area 1: enter the CR 1–10 corridor from the front of the Dara Shikoh Library.', hi: 'फोटोग्राफी क्षेत्र 1: दारा शिकोह पुस्तकालय के सामने से CR 1–10 गलियारे में प्रवेश करें।' },
   photoB: { en: 'Photography Area 2: NL2, CR 12 and Hall 69 (rooms N1–N6), off the lane between the WS block and the Halls.', hi: 'फोटोग्राफी क्षेत्र 2: NL2, CR 12 और हॉल 69 (कमरे N1–N6), WS ब्लॉक और हॉल के बीच की गली में।' },
   lunchS: { en: 'Student lunch area, on the open ground beside Car Parking.', hi: 'छात्र भोजन क्षेत्र, कार पार्किंग के पास खुले मैदान में।' },
-  lunchF: { en: 'Staff lunch area, at the bottom (south side) of the Playing Field.', hi: 'स्टाफ भोजन क्षेत्र, खेल मैदान के निचले (दक्षिणी) भाग में।' },
+  lunchF: { en: 'Staff lunch area, on the south side of the ceremony area. The entry is the same as the Pandal entry.', hi: 'स्टाफ भोजन क्षेत्र, समारोह क्षेत्र के दक्षिणी ओर। प्रवेश पंडाल के प्रवेश द्वार जैसा ही है।' },
   health: { en: 'You have reached the Health Centre, opposite the Library.', hi: 'आप स्वास्थ्य केंद्र पहुँच गए हैं, जो पुस्तकालय के सामने है।' },
   wc:     { en: 'You have reached the washroom.', hi: 'आप शौचालय पहुँच गए हैं।' },
 };
@@ -280,46 +250,38 @@ const GREENS = [
   [[1915,800],[2200,705],[2215,740],[2040,830],[1950,850]],
   [[2215,668],[2350,640],[2360,700],[2240,740]],
 ];
-/* roads are drawn wide (v2) so they are clearly visible */
-const ROADS = [
-  { p: [[1470,440],[1455,560],[1440,700],[1390,752],[1200,730],[1000,708],[600,662],[450,632],[330,580],[255,490],[235,390],[280,300],[360,262],[480,250],[620,268],[800,295],[1100,345],[1250,372],[1330,386],[1400,398],[1480,420]], w: 54, closed: true },
-  { p: [[0,390],[150,392],[235,390]], w: 46 },
-  { p: [[1845,150],[1845,330],[1845,700],[1830,945]], w: 70 },
-  { p: [[1845,322],[1700,320],[1612,345],[1578,418],[1480,420]], w: 46 },
-  { p: [[1830,945],[1850,940],[2000,885],[2200,810],[2400,745],[2576,700]], w: 84 },
-  { p: [[1845,684],[1795,684],[1700,664]], w: 34 },
-  { p: [[1845,398],[1990,398],[2225,400],[2225,548]], w: 30 },
-];
+/* roads: exact shapes traced from the campus map (slightly widened); each is an outer ring plus holes */
+const ROADS = [{"o":[[2575,716],[2575,670],[2500,670],[2499,683],[2456,685],[2397,694],[2335,708],[2269,728],[1970,850],[1938,852],[1905,839],[1889,823],[1882,803],[1883,785],[1901,754],[1901,745],[1822,630],[1876,186],[1866,181],[1866,150],[1826,150],[1826,199],[1812,297],[1691,299],[1658,304],[1633,312],[1604,331],[1586,351],[1573,373],[1563,402],[463,223],[429,223],[380,230],[339,243],[303,261],[268,287],[237,320],[213,356],[199,387],[45,367],[36,368],[32,372],[0,372],[0,412],[60,412],[61,405],[192,421],[193,454],[200,489],[215,524],[233,551],[261,581],[282,598],[317,619],[360,636],[394,644],[1403,763],[1409,759],[1473,421],[1595,439],[1601,435],[1607,404],[1621,374],[1639,354],[1657,343],[1675,337],[1702,334],[1808,335],[1763,721],[1766,724],[1789,726],[1776,847],[1773,849],[1752,846],[1746,850],[1739,913],[1704,994],[1704,1002],[1710,1006],[1722,1004],[1760,987],[1754,961],[1765,959],[1772,954],[1780,954],[1785,949],[1794,948],[1812,938],[1852,925],[1883,910],[1895,908],[1920,895],[1933,892],[1940,911],[1950,915],[2301,778],[2350,764],[2418,750],[2475,743],[2519,742],[2526,737],[2535,716]],"h":[[[233,397],[242,372],[260,341],[284,314],[317,289],[346,274],[377,263],[412,256],[453,254],[484,257],[1437,414],[1438,417],[1377,729],[429,617],[366,605],[327,588],[303,573],[287,560],[259,529],[241,497],[231,465],[228,431]]]}];
 /* flat = drawn flat on the ground in 3D (tan buildings #bdb590 and the two courts) */
 const TAN = '#bdb590', COURT = '#8a7660', BLUE = '#8da7c7', DARK = '#7188a8';
 const BUILDINGS = [
-  { id:'eh', poly:[[88,140],[300,60],[330,97],[620,105],[615,222],[400,205],[262,250],[185,370],[20,292]], h:9, c:DARK, en:'EAST HOSTEL', hi:'पूर्वी छात्रावास', lx:250, ly:178, fs:58, s3:1 },
-  { id:'bb', poly:[[650,115],[850,145],[835,260],[640,230]], flat:1, c:COURT, en:'BASKETBALL\nCOURT', hi:'बास्केटबॉल\nकोर्ट', lx:745, ly:190, fs:38 },
-  { id:'ta', poly:[[880,120],[1215,140],[1190,340],[858,290]], flat:1, c:TAN },
-  { id:'blk', poly:[[1245,165],[1555,215],[1550,398],[1222,348]], h:11, c:'#4f6f99', en:'ACADEMIC BLOCK\nROOMS 301–405', hi:'शैक्षणिक भवन\nकमरे 301–405', lx:1400, ly:262, fs:40, s3:1 },
-  { id:'pwd', poly:[[1552,188],[1722,185],[1690,268],[1632,262]], h:4, c:'#9aa8bd', en:'PWD\nOFFICE', hi:'पीडब्ल्यूडी\nकार्यालय', lx:1645, ly:222, fs:30 },
-  { id:'bank', poly:[[1722,185],[1762,180],[1748,282],[1700,262]], h:4, c:'#c0516f', en:'BANK', hi:'बैंक', lx:1737, ly:236, fs:28, rot:-80 },
-  { id:'aud', poly:[[240,320],[350,310],[385,350],[612,360],[585,550],[360,518],[320,548],[265,510],[250,430],[232,410]], h:8, c:DARK, en:'AUDITORIUM', hi:'सभागार', lx:415, ly:440, fs:58, s3:1 },
-  { id:'wh', poly:[[20,430],[170,432],[210,480],[300,590],[520,660],[530,840],[40,850]], h:9, c:DARK, en:'WEST HOSTEL', hi:'पश्चिमी छात्रावास', lx:250, ly:728, fs:58, s3:1 },
-  { id:'tw', poly:[[35,850],[530,845],[490,1290],[45,1320]], flat:1, c:TAN },
-  { id:'tc', poly:[[565,690],[820,722],[785,955],[535,930]], flat:1, c:COURT, en:'LAWN\nTENNIS\nCOURT', hi:'लॉन\nटेनिस\nकोर्ट', lx:660, ly:808, fs:40 },
-  { id:'tb', poly:[[820,722],[1145,755],[1110,995],[790,955]], flat:1, c:TAN },
-  { id:'tcc', poly:[[1200,765],[1530,800],[1515,925],[1180,915]], flat:1, c:TAN },
-  { id:'td', poly:[[1180,940],[1505,950],[1485,1090],[1152,1092]], flat:1, c:TAN },
-  { id:'te', poly:[[1440,482],[1590,502],[1540,775],[1410,755]], flat:1, c:TAN },
-  { id:'sh', poly:[[510,965],[1100,1040],[1075,1195],[500,1130]], flat:1, c:TAN, en:'SEMINAR HALLS\nSH1–SH4 · SC1–SC3', hi:'सेमिनार हॉल\nSH1–SH4 · SC1–SC3', lx:800, ly:1090, fs:38, rot:6, dark:1 },
-  { id:'lib', poly:[[1590,665],[1745,675],[1715,985],[1565,985]], h:10, c:BRAND, en:'DARA SHIKOH\nLIBRARY', hi:'दारा शिकोह\nपुस्तकालय', lx:1650, ly:850, fs:44, s3:1 },
-  { id:'cr', poly:[[1605,600],[1655,385],[1805,392],[1800,668],[1650,662]], h:4, c:BLUE, c3:'#8b6fd6' },
-  { id:'ws', poly:[[1855,235],[2215,215],[2380,378],[2290,340],[1858,380]], h:6, c:'#7b97bd', en:'WS 1–5 · MEDIA BLOCK · EHSAAS', hi:'WS 1–5 · मीडिया ब्लॉक · एहसास', lx:2040, ly:300, fs:34 },
-  { id:'hl', poly:[[1825,430],[2195,380],[2200,520],[2130,560],[1830,610]], h:6, c:'#7b97bd', en:'HALLS 57–71 · NL 1–2', hi:'हॉल 57–71 · NL 1–2', lx:2010, ly:500, fs:34 },
-  { id:'tg', poly:[[1880,640],[2000,600],[2150,590],[2250,570],[2330,500],[2410,600],[2330,650],[2210,700],[2100,740],[2050,810],[1960,790],[1900,700]], h:5, c:'#9db6d6', en:"TEACHERS' GALLERY\n& ROOMS 1–57", hi:'शिक्षक दीर्घा\nव कमरे 1–57', lx:2140, ly:668, fs:32, rot:-22 },
-  { id:'r14', poly:[[2405,752],[2500,748],[2495,788],[2405,792]], h:4, c:'#6fa8d8', en:'14', hi:'14', lx:2452, ly:782, fs:30 },
+  { id:'eh', poly:[[619,106],[569,95],[338,89],[310,55],[297,54],[88,140],[62,284],[24,286],[23,305],[150,366],[178,369],[200,324],[243,275],[282,246],[341,218],[400,204],[469,202],[602,220]], h:9, c:DARK, en:'EAST HOSTEL', hi:'पूर्वी छात्रावास', lx:250, ly:178, fs:58, s3:1 },
+  { id:'bb', poly:[[654,114],[638,230],[835,260],[850,143]], flat:1, c:COURT, en:'BASKETBALL\nCOURT', hi:'बास्केटबॉल\nकोर्ट', lx:745, ly:190, fs:38 },
+  { id:'ta', poly:[[879,120],[856,289],[1187,342],[1215,139],[1147,127],[1075,124],[1072,145],[1055,147],[898,120]], flat:1, c:TAN },
+  { id:'blk', poly:[[1244,162],[1219,349],[1537,400],[1560,214]], h:11, c:'#4f6f99' },
+  { id:'pwd', poly:[[1730,180],[1548,187],[1548,200],[1558,206],[1627,216],[1631,261],[1700,270],[1730,195]], h:4, c:'#9aa8bd', en:'PWD\nOFFICE', hi:'पीडब्ल्यूडी\nकार्यालय', lx:1645, ly:222, fs:30 },
+  { id:'bank', poly:[[1770,178],[1713,180],[1692,252],[1692,270],[1746,278],[1759,219],[1766,219]], h:4, c:'#c0516f', en:'BANK', hi:'बैंक', lx:1737, ly:236, fs:28, rot:-80 },
+  { id:'aud', poly:[[235,388],[230,424],[258,439],[264,478],[275,501],[299,533],[316,545],[341,546],[359,533],[365,517],[388,517],[542,537],[542,546],[584,550],[611,357],[571,355],[568,364],[545,364],[388,345],[387,335],[364,309],[345,308],[327,315],[300,338],[281,360],[266,388]], h:8, c:DARK, en:'AUDITORIUM', hi:'सभागार', lx:440, ly:440, fs:44, s3:1 },
+  { id:'wh', poly:[[18,444],[18,480],[35,484],[42,848],[152,848],[155,779],[294,779],[296,811],[379,811],[381,842],[510,841],[530,714],[529,681],[369,661],[317,644],[276,622],[230,584],[194,537],[174,491],[168,462],[167,431],[102,423],[53,422],[37,435]], h:9, c:DARK, en:'WEST HOSTEL', hi:'पश्चिमी छात्रावास', lx:250, ly:728, fs:58, s3:1 },
+  { id:'tw', poly:[[507,841],[386,841],[384,838],[150,841],[147,847],[42,847],[31,854],[39,1272],[46,1293],[58,1308],[86,1322],[123,1324],[439,1290]], flat:1, c:TAN },
+  { id:'tc', poly:[[568,687],[532,926],[786,957],[818,715]], flat:1, c:COURT, en:'LAWN\nTENNIS\nCOURT', hi:'लॉन\nटेनिस\nकोर्ट', lx:660, ly:808, fs:40 },
+  { id:'tb', poly:[[816,716],[784,959],[851,967],[857,938],[1044,959],[1044,993],[1106,999],[1126,883],[1136,882],[1148,803],[1148,790],[1143,787],[1146,754]], flat:1, c:TAN },
+  { id:'tcc', poly:[[1187,794],[1185,818],[1192,823],[1180,916],[1511,927],[1531,811],[1529,799],[1219,762],[1203,763],[1199,792]], flat:1, c:TAN },
+  { id:'td', poly:[[1172,950],[1152,1094],[1485,1088],[1506,947],[1189,940]], flat:1, c:TAN },
+  { id:'te', poly:[[1460,479],[1409,759],[1537,775],[1587,519],[1588,498]], flat:1, c:TAN },
+  { id:'sh', poly:[[522,966],[500,1127],[1056,1195],[1074,1193],[1098,1036],[547,965]], flat:1, c:TAN, en:'SSR1–3', hi:'SSR1–3', lx:800, ly:1090, fs:64, rot:6, dark:1 },
+  { id:'lib', poly:[[1599,658],[1586,781],[1571,793],[1567,862],[1573,869],[1562,986],[1635,993],[1685,993],[1718,914],[1747,674],[1708,668],[1708,664]], h:10, c:BRAND, en:'DARA SHIKOH\nLIBRARY', hi:'दारा शिकोह\nपुस्तकालय', lx:1650, ly:850, fs:44, s3:1 },
+  { id:'cr', poly:[[1805,388],[1669,379],[1651,532],[1616,533],[1605,608],[1607,623],[1642,670],[1708,672],[1710,648],[1721,646],[1723,635],[1734,635],[1751,509],[1791,508]], h:4, c:BLUE, c3:'#8b6fd6' },
+  { id:'ws', poly:[[2373,371],[2340,323],[2310,293],[2296,292],[2267,251],[2261,249],[2226,210],[1868,228],[1850,382],[1898,386],[1925,383],[1928,377],[1979,378],[1984,368],[2036,372],[2039,359],[2095,363],[2104,361],[2108,352],[2119,353],[2122,360],[2137,360],[2139,356],[2148,356],[2152,342],[2187,346],[2296,342],[2308,359],[2342,374],[2354,374],[2358,379],[2373,379]], h:6, c:'#7b97bd', en:'MEDIA BLOCK', hi:'मीडिया ब्लॉक', lx:2189, ly:292, fs:30, rot:-90 },
+  { id:'hl', poly:[[2196,378],[2159,375],[2140,378],[2136,386],[2087,385],[2084,386],[2081,397],[2029,393],[2025,407],[1973,404],[1969,419],[1917,415],[1913,429],[1876,425],[1844,427],[1822,613],[1855,616],[2139,565],[2197,535],[2206,482],[2206,454],[2189,451]], h:6, c:'#7b97bd', en:'HALLS 57–71', hi:'हॉल 57–71', lx:2125, ly:495, fs:30 },
+  { id:'tg', poly:[[2406,577],[2380,544],[2364,543],[2331,498],[2321,498],[2309,503],[2260,546],[2259,567],[2228,572],[2228,583],[2207,595],[2197,595],[2183,576],[2115,583],[2081,593],[2057,593],[2012,617],[2000,617],[1990,604],[1982,604],[1934,629],[1924,629],[1921,625],[1885,627],[1876,631],[1876,644],[1907,687],[1907,698],[1895,705],[1895,713],[1916,745],[1946,743],[1955,754],[1955,766],[1941,773],[1941,781],[1952,798],[2034,817],[2055,818],[2062,813],[2062,789],[2051,774],[2055,760],[2066,757],[2077,748],[2105,737],[2111,731],[2146,714],[2195,714],[2204,708],[2217,708],[2217,693],[2224,675],[2249,667],[2251,660],[2273,649],[2286,649],[2290,640],[2313,638],[2313,629],[2320,624],[2332,626],[2330,646],[2365,642],[2409,614],[2409,605],[2403,597]], h:5, c:'#9db6d6', en:"TEACHERS' GALLERY\n& ROOMS 1–57", hi:'शिक्षक दीर्घा\nव कमरे 1–57', lx:2140, ly:668, fs:32, rot:-22 },
+  { id:'r14', poly:[[2494,742],[2434,745],[2401,751],[2404,771],[2402,795],[2409,800],[2417,800],[2418,791],[2499,780]], h:4, c:'#6fa8d8', en:'MEDIA CENTRE', hi:'मीडिया सेंटर', lx:2452, ly:824, fs:26, dark:1 },
   { id:'hc', poly:[[1898,706],[1914,698],[1940,738],[1923,749]], h:4, c:'#ffffff', hcb:1 },
 ];
 const NESCAFE = { poly: [[1186,281],[1210,283],[1209,305],[1185,303]], c: [1198, 293] };
 const ZONES = {
   pandal: [[640,305],[1415,430],[1385,640],[600,548]],
-  lunchF: [[588,572],[1392,664],[1378,722],[580,624]],
+  lunchF: [[595,566],[1388,660],[1385,698],[592,604]],
   photoA: BUILDINGS.find(b => b.id === 'cr').poly,
   lunchS: [[1765,1002],[2060,915],[2110,958],[1780,1072]],
   photoB: [
@@ -356,7 +318,9 @@ function computeRoute() {
     if (s) steps.push(s);
   });
   steps.push(arriveFor(state.to));
-  route = { nodes: r.nodes, pts: r.nodes.map(id => N[id]), len: r.len, steps };
+  const rp = [N[r.nodes[0]]];
+  for (let i = 1; i < r.nodes.length; i++) geomOf(r.nodes[i - 1], r.nodes[i]).slice(1).forEach(p => rp.push(p));
+  route = { nodes: r.nodes, pts: rp, len: r.len, steps };
 }
 
 /* ============================================================
@@ -429,9 +393,8 @@ function lines(txt, x, y, fs, cls = '', rot = 0) {
 function buildBase() {
   let s = `<polygon points="${pts(CAMPUS)}" fill="#eef1f5" stroke="#9fb0c4" stroke-width="14" stroke-linejoin="round"/>`;
   GREENS.forEach(g => s += `<polygon points="${pts(g)}" fill="#b3d99a"/>`);
-  const tagName = r => r.closed ? 'polygon' : 'polyline';
-  ROADS.forEach(r => s += `<${tagName(r)} points="${pts(r.p)}" fill="none" stroke="#fff" stroke-width="${r.w + 14}" stroke-linejoin="round" stroke-linecap="round"/>`);
-  ROADS.forEach(r => s += `<${tagName(r)} points="${pts(r.p)}" fill="none" stroke="#7b8794" stroke-width="${r.w}" stroke-linejoin="round" stroke-linecap="round"/>`);
+  const roadD = ROADS.map(sh => [sh.o, ...sh.h].map(r => 'M' + r.map(p => p.join(',')).join('L') + 'Z').join('')).join('');
+  s += `<path d="${roadD}" fill="#7b8794" fill-rule="evenodd" stroke="#fff" stroke-width="12" stroke-linejoin="round" paint-order="stroke"/>`;
   BUILDINGS.forEach(b => s += `<polygon points="${pts(b.poly)}" fill="${b.c}" stroke="rgba(8,40,90,.28)" stroke-width="3"/>`);
   const Z = (k, fill, stroke) => polysOf(k).map(p => `<polygon class="zone" data-zone="${k}" points="${pts(p)}" fill="${fill}" stroke="${stroke}" stroke-width="6" stroke-dasharray="${k === 'pandal' ? '' : '18 10'}"/>`).join('');
   s += Z('pandal', 'rgba(245,179,1,.4)', '#d99a00');
@@ -451,10 +414,10 @@ function renderLabels() {
   let s = '';
   BUILDINGS.forEach(b => { if (b.en) s += lines(L(b), b.lx, b.ly, b.fs, b.dark ? 'dark' : '', b.rot || 0); });
   s += lines('308', 1262, 322, 30);
-  s += lines(L({ en: 'PANDAL · CEREMONY', hi: 'पंडाल · समारोह' }), 860, 440, 42, 'dark', 6);
+  s += lines(L({ en: 'PANDAL · CEREMONY', hi: 'पंडाल · समारोह' }), 1010, 440, 40, 'dark', 6);
   s += `<g transform="translate(${PANDAL_C[0]} ${PANDAL_C[1]}) rotate(${PANDAL_ANG * 180 / Math.PI})">
     ${lines(L(T.stage), -355, 0, 26, '', -90)}${lines(L(T.faculty), -257, 0, 24, 'dark', -90)}${lines(L(T.students), 85, 62, 40, 'dark')}</g>`;
-  s += lines(L({ en: 'STAFF LUNCH', hi: 'स्टाफ भोजन' }), 985, 640, 46, '', 6);
+  s += lines(L({ en: 'STAFF LUNCH', hi: 'स्टाफ भोजन' }), 990, 632, 28, '', 6.8);
   s += lines(L({ en: 'PHOTO AREA 1\nCR 1–10', hi: 'फोटो क्षेत्र 1\nCR 1–10' }), 1730, 520, 34, '', -84);
   s += lines('NL2', 1943, 462, 24) + lines(L({ en: 'HALL 69', hi: 'हॉल 69' }), 2006, 480, 24, '', -90) + lines('CR 12', 2073, 330, 24);
   s += lines(L({ en: 'PHOTO AREA 2', hi: 'फोटो क्षेत्र 2' }), 2010, 388, 30, 'dark');
@@ -463,12 +426,10 @@ function renderLabels() {
 
   let m = '';
   Object.entries(GATES).forEach(([k, g]) => {
-    const [x, y] = N[g.node], col = g.type === 'student' ? '#16a34a' : BRAND;
-    m += `<g class="gate" data-gate="${k}" transform="translate(${x} ${y})"><circle r="48" fill="transparent"/><circle r="32" fill="${col}" stroke="#fff" stroke-width="8"/><text y="13" text-anchor="middle" font-size="36" font-weight="700" fill="#fff" style="pointer-events:none">${g.num}</text></g>`;
-    const tx = x + g.tag.dx, ty = y + g.tag.dy;
-    m += `<text class="tag" font-size="40" text-anchor="${g.tag.a}" x="${tx}" y="${ty}">${L(g.short).toUpperCase()}</text>`;
-    m += `<text class="tag" font-size="30" text-anchor="${g.tag.a}" x="${tx}" y="${ty + 34}">${L(g.title)}</text>`;
-    m += `<text class="tag" font-size="24" text-anchor="${g.tag.a}" x="${tx}" y="${ty + 62}" style="font-weight:600">${L(g.acc)}</text>`;
+    const [x, y] = N[g.node];
+    m += `<g class="gate" data-gate="${k}" transform="translate(${x} ${y})"><circle r="48" fill="transparent"/><circle r="32" fill="${BRAND}" stroke="#fff" stroke-width="8"/><path d="M-11,15V-5a11,11 0 0 1 22,0V15z" fill="#fff" style="pointer-events:none"/></g>`;
+    { const t = L(g.title), i = g.tag.br ? t.lastIndexOf(' ') : -1, ls = i > 0 ? [t.slice(0, i), t.slice(i + 1)] : [t];
+      ls.forEach((l, n) => m += `<text class="tag" font-size="38" text-anchor="${g.tag.a}" x="${x + g.tag.dx}" y="${y + g.tag.dy + n * 40}">${l}</text>`); }
   });
   // pandal entry (next to Nescafe)
   const [ex, ey] = N.PIN;
@@ -482,7 +443,7 @@ function renderLabels() {
     m += `<g class="fac2" data-zone="health" transform="translate(${x} ${y})"><circle r="44" fill="transparent"/><circle r="30" fill="#fff" stroke="#dc2626" stroke-width="7"/><path d="M-5,-17h10v12h12v10h-12v12h-10v-12h-12v-10h12z" fill="#dc2626" style="pointer-events:none"/></g>`;
     m += `<text class="tag" font-size="30" text-anchor="start" x="${x + 40}" y="${y + 10}">${L(T.hcL)}</text>`; }
   if (DEBUG) {
-    EDGES.forEach(([a, b]) => m += `<line x1="${N[a][0]}" y1="${N[a][1]}" x2="${N[b][0]}" y2="${N[b][1]}" stroke="#000" stroke-width="3" opacity=".6"/>`);
+    EDGES.forEach(([a, b]) => m += `<polyline points="${pts(geomOf(a, b))}" fill="none" stroke="#000" stroke-width="3" opacity=".6"/>`);
     Object.entries(N).forEach(([k, p]) => m += `<circle cx="${p[0]}" cy="${p[1]}" r="9" fill="#000"/><text x="${p[0] + 12}" y="${p[1] - 12}" font-size="26" fill="#000" style="pointer-events:none">${k}</text>`);
   }
   $('#gMarkers').innerHTML = m;
@@ -509,7 +470,7 @@ function renderPanel() {
   const chip = (act, k, on, txt) => `<button class="chip ${on ? 'on' : ''}" data-act="${act}" data-k="${k}">${txt}</button>`;
   const step = (n, t) => `<div class="step"><i>${n}</i>${L(t)}</div>`;
   let h = step(1, T.s1) + `<div class="chips">${chip('role', 'student', state.role === 'student', '🎓 ' + L(T.student))}${chip('role', 'staff', state.role === 'staff', '👔 ' + L(T.staff))}</div>`;
-  h += step(2, T.s2) + `<div class="chips">${fromOpts.map(k => chip('from', k, state.from === k, GATES[k] ? '🚪 ' + L(GATES[k].short) + (state.role === 'staff' ? ' · ' + L(GATES[k].title) : '') : PLACES[k].ic + ' ' + L(PLACES[k].name))).join('')}</div>`;
+  h += step(2, T.s2) + `<div class="chips">${fromOpts.map(k => chip('from', k, state.from === k, GATES[k] ? '🚪 ' + L(GATES[k].title) : PLACES[k].ic + ' ' + L(PLACES[k].name))).join('')}</div>`;
   if (GATES[state.from]) h += `<div class="note">${L(GATES[state.from].sub)}</div>`;
   h += step(3, T.s3) + `<div class="dests">${role.dests.map(k => `<button class="dest ${state.to === k ? 'on' : ''}" data-act="to" data-k="${k}" ${state.from === k ? 'disabled' : ''}><span class="ic">${PLACES[k].ic}</span><span><b>${L(PLACES[k].name)}</b><small>${L(PLACES[k].desc)}</small></span></button>`).join('')}</div>`;
   if (state.role === 'student') h += `<div class="note">${L(T.photoNote)}</div>`;
@@ -522,8 +483,8 @@ function renderPanel() {
       <div class="actions">${nxk ? `<button class="btn pri" data-act="next" data-k="${nxk}">${L(T.next)} ${PLACES[nxk].ic} ${L(PLACES[nxk].name)} →</button>` : ''}<button class="btn sec" data-act="clear">${L(T.clear)}</button></div></div>`;
   } else h += `<p class="hint">${L(T.hint)}</p>`;
   h += `<details><summary>${L(T.legend)}</summary><div class="legend">
-    <span><i style="background:#16a34a"></i>${L(T.gStudent)}</span><span><i style="background:${BRAND}"></i>${L(T.gStaff)}</span>
-    <span><i style="background:#f5b301"></i>${L(PLACES.pandal.name)}</span><span><i style="background:#7c3aed"></i>${L({ en: 'Photography', hi: 'फोटोग्राफी' })}</span>
+    <span><i style="background:${BRAND}"></i>${L(T.gateL)}</span><span><i style="background:#7c3aed"></i>${L({ en: 'Photography', hi: 'फोटोग्राफी' })}</span>
+    <span><i style="background:#f5b301"></i>${L(PLACES.pandal.name)}</span>
     <span><i style="background:#ea580c"></i>${L(PLACES.lunchF.name)}</span><span><i style="background:#0d9488"></i>${L(PLACES.lunchS.name)}</span>
     <span><i style="background:${BRAND}"></i>${L(T.wcL)}</span><span><i style="background:#dc2626"></i>${L(T.hcL)}</span></div></details>`;
   $('#panel').innerHTML = h;
@@ -616,14 +577,15 @@ async function init3D() {
   const V = ([x, y], h = 0) => new THREE.Vector3(X(x), h, Zc(y));
   const box = (w, h, d, color, x, y, z, parent = scene) => { const m = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), mat(color)); m.position.set(x, y, z); parent.add(m); return m; };
 
-  // ground, greens, wide roads with white edges
+  // ground, greens, roads
   const land = new THREE.Mesh(new THREE.PlaneGeometry(900, 700), mat(0xe3e9f1)); land.rotation.x = -Math.PI / 2; land.position.y = -.6; scene.add(land);
   scene.add(extrude(CAMPUS, .5, 0xeef1f5, -.5));
   GREENS.forEach(g => scene.add(extrude(g, .12, 0xb3d99a)));
-  ROADS.forEach(r => {
-    const p = r.p.map(q => V(q, 0)), n = r.closed ? p.length : p.length - 1;
-    for (let i = 0; i < n; i++) seg(p[i], p[(i + 1) % p.length], (r.w + 14) * S, .1, .075, 0xffffff, scene);
-    for (let i = 0; i < n; i++) seg(p[i], p[(i + 1) % p.length], r.w * S, .1, .09, 0x7b8794, scene);
+  ROADS.forEach(sh => {
+    const v2 = ring => ring.map(([x, y]) => new THREE.Vector2(X(x), -Zc(y)));
+    const shp = new THREE.Shape(v2(sh.o)); sh.h.forEach(h => shp.holes.push(new THREE.Path(v2(h))));
+    const geo = new THREE.ExtrudeGeometry(shp, { depth: .16, bevelEnabled: false }); geo.rotateX(-Math.PI / 2);
+    scene.add(new THREE.Mesh(geo, mat(0x7b8794)));
   });
 
   // tags
@@ -681,7 +643,7 @@ async function init3D() {
     }
     tag(tagTxt, cx, cy, 5, tagCls);
   }
-  lunch('lunchF', 985, 643, Math.atan2(98, 808), 760, 1, 0xea580c, 'zf', { en: 'STAFF LUNCH', hi: 'स्टाफ भोजन' });
+  lunch('lunchF', 990, 632, Math.atan2(94, 793), 760, 1, 0xea580c, 'zf', { en: 'STAFF LUNCH', hi: 'स्टाफ भोजन' });
   lunch('lunchS', 1935, 987, Math.atan2(-87, 295), 300, 2, 0x0d9488, 'zs', { en: 'STUDENT LUNCH', hi: 'छात्र भोजन' });
 
   // photography areas (purple slabs on the roofs)
@@ -698,10 +660,10 @@ async function init3D() {
 
   // gates
   Object.entries(GATES).forEach(([k, g]) => {
-    const [x, y] = N[g.node], col = g.type === 'student' ? 0x16a34a : 0x084c9d;
+    const [x, y] = N[g.node], col = 0x084c9d;
     [-2.4, 2.4].forEach(dz => box(1, 6, 1, col, X(x), 3, Zc(y) + dz));
     box(1.2, 1.1, 6.2, col, X(x), 6.3, Zc(y));
-    tag({ en: g.name.en, hi: g.name.hi }, x, y, 9, g.type === 'student' ? 'g1' : 'g2');
+    tag(g.title, x, y, 9, 'g2');
   });
 
   // route
